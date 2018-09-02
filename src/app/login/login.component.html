@@ -1,0 +1,22 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="card-details">
+      <h4>Welcome to the Online Recruitments Portal</h4>
+      <br>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()" method="POST">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Email">
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">Required Field</div>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">Required Field</div>
+        <br>
+        <button type="submit" class="btn btn-primary" style = "margin : 0 auto">Login</button>
+        <a routerLink="/signup">
+          <button class="btn btn-success">Sign Up</button>
+        </a>
+      </form>
+    </div>
+  </div>
+</div>
