@@ -1,21 +1,22 @@
-<div class="login-container">
-  <div class="login-card">
+<div class="signup-container">
+  <div class="signup-card">
     <div class="card-details">
       <h4>Welcome to the Online Recruitments Portal</h4>
       <br>
-      <form [formGroup]="loginForm" (ngSubmit)="submit()" method="POST">
+      <form [formGroup]="signupForm" method="POST">
         <label for="email">Email</label>
         <input type="email" class="form-control" formControlName="email" placeholder="Email">
         <div *ngIf="email.touched && email.invalid" class="alert alert-danger">Required Field</div>
         <br>
-        <label for="password">Password</label>
-        <input type="password" class="form-control" formControlName="password" placeholder="Password">
-        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">Required Field</div>
-        <br>
-        <button type="submit" class="btn btn-primary" style = "margin : 0 auto">Login</button>
-        <a routerLink="/signup">
-          <button class="btn btn-success">Sign Up</button>
-        </a>
+        <div id="otp" style = "display: none">
+          <label for="email">OTP</label>
+          <input type="text" class="form-control" formControlName="otp" placeholder="OTP">
+          <br>
+          <br>
+        </div>
+        <div style="text-align: center">
+          <button id = "authBttn" class="btn btn-primary col-4" (click)="submit()">Generate OTP</button>
+        </div>
       </form>
     </div>
   </div>

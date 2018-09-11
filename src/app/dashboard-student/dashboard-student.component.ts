@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-dashboard-student',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardStudentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginservice : LoginService) { }
 
   ngOnInit() {
+    
   }
 
 }

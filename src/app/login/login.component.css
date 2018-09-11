@@ -1,9 +1,12 @@
-.login-container {
+.signup-container {
     width: 100%;
     margin: 0 auto;
+    background-image: url("./../../vendor/img/banner-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.login-card {
+.signup-card {
     width: 100%;  
     min-height: 100vh;
     display: -webkit-box;
@@ -15,12 +18,12 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #f2f2f2;  
+    background-color: rgba(0, 0, 0, 0.5)
 }
 
 .card-details {
     width: 590px;
-    height: 550px;
+    height: 500px;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -39,5 +42,10 @@ a {
 
 h4 {
     text-align: center;
+}
+
+button {
+    text-align: center;
+    margin : 0 auto;
 }
   
