@@ -1,1 +1,31 @@
-<p>Dashboard - Student</p>
+<app-header></app-header>
+<div class="sub_container">
+  <h2> Currently Recruiting</h2><br>
+  <div class="row">
+    <div class="card" style="width: 35rem;" *ngFor="let club of quizesListings">
+      <img class="card-img-top" src="./../../vendor/img/cta-bg.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ club["name"] }}</h5>
+        <p class="card-text">{{ club["description"] }}</p>
+        <a href="#" class="btn btn-primary">Start Attempt</a>
+      </div>
+    </div>
+    <br>
+  </div>
+  <br>
+  <h2> Upcoming </h2><br>
+
+  <div class="row">
+    <div class="card" style="width: 35rem;" *ngFor="let club of clubListings">
+      <img class="card-img-top" src="./../../vendor/img/cta-bg.jpg" alt="Card image cap" >
+      <div class="card-body">
+        <h5 class="card-title">{{ club["name"] }}</h5>
+        <p class="card-text">{{ club["description"] }}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<app-footer></app-footer>

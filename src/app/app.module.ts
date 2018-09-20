@@ -29,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       {path : '', component: HomeComponent},
       {path : 'login', component: LoginComponent},
-      {path : 'dashboard_student', component: DashboardStudentComponent}
+      {path : 'dashboard_student', component: DashboardStudentComponent},
+      
     ])
   ],
   providers: [],

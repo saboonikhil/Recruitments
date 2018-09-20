@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
+import { GetClubsService } from '../get-clubs.service';
 
 @Component({
   selector: 'app-dashboard-student',
@@ -8,10 +8,23 @@ import { LoginService } from '../login.service';
 })
 export class DashboardStudentComponent implements OnInit {
 
-  constructor(private loginservice : LoginService) { }
+  constructor(private clubService : GetClubsService) { }
+
+  private clubListings = []
+  private quizesListings = []
 
   ngOnInit() {
-    
-  }
+    this.clubService.getClubList().subscribe((data) => {
+      this.clubListings = data.data;
+      console.log(this.clubListings);
+    }, (error: any) => {
+      window.alert(error);
+    });
 
+    this.clubService.getLiveRecruitmentsList().subscribe((data) => {
+      this.quizesListings = data.data;
+    }, (error: any) => {
+      window.alert(error);
+    });
+  }
 }
