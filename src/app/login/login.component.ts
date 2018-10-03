@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
       params["otp"] = signUpFormValues.otp;
       this.loginservice.verifyLogin(params).subscribe((data: any) => {
         if(data["success"]) {
-          window.sessionStorage.setItem("emailId",params.recipient);
+          window.sessionStorage.setItem("email_id",params["recipient"]);
           this._router.navigate(["dashboard_student"]);
         }
         else {

@@ -1,0 +1,11 @@
+.header {
+    padding : 10px 10px 10px 10px;
+    background-color: black;
+    color: white;
+}
+
+.username h3 {
+    background-color: white;
+    color: black;
+    padding : 20px 20px 20px 20px;
+}

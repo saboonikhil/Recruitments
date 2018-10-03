@@ -10,21 +10,30 @@ export class DashboardStudentComponent implements OnInit {
 
   constructor(private clubService : GetClubsService) { }
 
-  private clubListings = []
-  private quizesListings = []
+  private upcomingQuizes = []
+  private liveQuizes = []
+  private allClubs = []
 
   ngOnInit() {
     this.clubService.getClubList().subscribe((data) => {
-      this.clubListings = data.data;
-      console.log(this.clubListings);
+      this.allClubs = data.data;
     }, (error: any) => {
-      window.alert(error);
+      console.log(error);
     });
 
     this.clubService.getLiveRecruitmentsList().subscribe((data) => {
-      this.quizesListings = data.data;
+      this.liveQuizes = data.data;
+      console.log(this.liveQuizes);
     }, (error: any) => {
-      window.alert(error);
+      console.log(error);
     });
+
+    this.clubService.getUpcoming().subscribe((data) => {
+      this.upcomingQuizes = data.data;
+      console.log(this.upcomingQuizes);
+    }, (error: any) => {
+      console.log(error);
+    });
+    
   }
 }

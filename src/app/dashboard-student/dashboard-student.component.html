@@ -2,7 +2,7 @@
 <div class="sub_container">
   <h2> Currently Recruiting</h2><br>
   <div class="row">
-    <div class="card" style="width: 35rem;" *ngFor="let club of quizesListings">
+    <div class="card" style="width: 35rem;" *ngFor="let club of liveQuizes">
       <img class="card-img-top" src="./../../vendor/img/cta-bg.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ club["name"] }}</h5>
@@ -14,18 +14,13 @@
   </div>
   <br>
   <h2> Upcoming </h2><br>
-
   <div class="row">
-    <div class="card" style="width: 35rem;" *ngFor="let club of clubListings">
+    <div class="card" style="width: 35rem;" *ngFor="let club of upcomingQuizes">
       <img class="card-img-top" src="./../../vendor/img/cta-bg.jpg" alt="Card image cap" >
       <div class="card-body">
         <h5 class="card-title">{{ club["name"] }}</h5>
         <p class="card-text">{{ club["description"] }}</p>
       </div>
     </div>
-
   </div>
-
 </div>
-
-<app-footer></app-footer>

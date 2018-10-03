@@ -11,10 +11,12 @@ export class GetClubsService {
   private backend_url: string;
   private getclubs_url: string;
   private livequizes_url: string;
+  private upcomingquizes_url: string;
   constructor(private http: HttpClient) {
     this.backend_url = environment.backend_url;
-    this.getclubs_url = this.backend_url + "/clubs/getClubs";
-    this.livequizes_url = this.backend_url + "/clubs/liveClubs";
+    this.getclubs_url = this.backend_url + "/clubs/list";
+    this.livequizes_url = this.backend_url + "/clubs/live";
+    this.upcomingquizes_url = this.backend_url + "/clubs/upcoming"
   }
 
   getClubList(): Observable<any> {
@@ -23,5 +25,9 @@ export class GetClubsService {
 
   getLiveRecruitmentsList(): Observable<any> {
     return this.http.get<any>(this.livequizes_url);
+  }
+
+  getUpcoming(): Observable<any> {
+    return this.http.get<any>(this.upcomingquizes_url);
   }
 }

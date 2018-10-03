@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { DashboardStudentComponent } from './dashboard-student/dashboard-student.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -17,9 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardStudentComponent,
     SidebarComponent,
     HeaderComponent,
-    FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
