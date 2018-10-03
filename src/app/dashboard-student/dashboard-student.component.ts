@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetClubsService } from '../get-clubs.service';
+import { SubmisssionsService } from '../submisssions.service';
 
 @Component({
   selector: 'app-dashboard-student',
@@ -7,14 +8,15 @@ import { GetClubsService } from '../get-clubs.service';
   styleUrls: ['./dashboard-student.component.css']
 })
 export class DashboardStudentComponent implements OnInit {
-
-  constructor(private clubService : GetClubsService) { }
-
+  email_id = "";
+  constructor(private clubService : GetClubsService, private submissionservice : SubmisssionsService) { }
+  private submissionResults = []
   private upcomingQuizes = []
   private liveQuizes = []
   private allClubs = []
 
   ngOnInit() {
+    this.email_id = window.sessionStorage.getItem("email_id");
     this.clubService.getClubList().subscribe((data) => {
       this.allClubs = data.data;
     }, (error: any) => {
@@ -34,6 +36,16 @@ export class DashboardStudentComponent implements OnInit {
     }, (error: any) => {
       console.log(error);
     });
-    
+
+    var params = {
+      "regno": this.email_id
+    };
+
+    this.submissionservice.getSubmission(params).subscribe((data) => {
+      this.submissionResults = data.data;
+      console.log(this.submissionResults);
+    }, (error: any) => {
+      console.log(error);
+    });
   }
 }

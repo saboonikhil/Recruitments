@@ -2,16 +2,18 @@
     width: 90%;
     margin : auto;
 }
+
 @media only screen and (min-width: 1267px) {
-.card {
-    margin-left:2vw;
-    width:35vw;
+    .card {
+        margin-left:2vw;
+        width:35vw;
+    }
+
+    .row {
+        margin-left:-1.4vw;
+    }
 }
 
-.row {
-    margin-left:-1.4vw;
-}
-}
 @media only screen and (max-width: 1266px) {
     .card {
         width:35vw;
