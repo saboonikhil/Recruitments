@@ -17,7 +17,6 @@ export class SubmisssionsService {
   }
 
   getSubmission(params): Observable<any> {
-    console.log(this.getsubmission_url);
     return this.http.post(this.getsubmission_url, params);
   }
 }

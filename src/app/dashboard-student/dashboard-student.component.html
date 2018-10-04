@@ -1,24 +1,37 @@
 <app-header></app-header>
 <div class="sub_container">
-  <span>
-    <h2> Currently Recruiting</h2>
-  </span>
+  <div class = "performanceStats">
+    <h2>My Performance</h2>
+    <div style="float:right;right:0px;display: block;width:calc( 40vw + 200px);height:calc(30vw + 100px);">
+    <canvas id="canvas" style="width:100%;height:100%;max-width:700px;max-height:300px;">{{ chart }}</canvas>
+    </div>
+  </div>
   <br>
+  <br>
+  <div class="dashboard_header">
+    <span>
+      <h2>Currently Recruiting</h2>
+    </span>
+    <!-- <span><button class="btn btn-primary">All clubs</button></span> -->
+  </div>
+  <br>
+
   <div class="row">
-    <div class="card" style="width: 35rem;" *ngFor="let club of liveQuizes">
+    <div class="card" *ngFor="let club of liveQuizes">
       <img class="card-img-top" src="./../../vendor/img/cta-bg.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ club["name"] }}</h5>
         <p class="card-text">{{ club["description"] }}</p>
-        <a href="#" class="btn btn-primary">Start Attempt</a>
       </div>
+      <a href="#" class="btn btn-primary">Start Attempt</a>
     </div>
     <br>
   </div>
   <br>
-  <h2> Upcoming </h2><br>
+  <br>
+  <h2>Upcoming</h2><br>
   <div class="row">
-    <div class="card" style="width: 35rem;" *ngFor="let club of upcomingQuizes">
+    <div class="card" *ngFor="let club of upcomingQuizes">
       <img class="card-img-top" src="./../../vendor/img/cta-bg.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ club["name"] }}</h5>
