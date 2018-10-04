@@ -9,7 +9,8 @@ import { SubmisssionsService } from '../submisssions.service';
 })
 export class DashboardStudentComponent implements OnInit {
   email_id = "";
-  constructor(private clubService : GetClubsService, private submissionservice : SubmisssionsService) { }
+  private submissionPresence = false;
+  constructor(private clubService: GetClubsService, private submissionservice: SubmisssionsService) { }
   private submissionResults = []
   private upcomingQuizes = []
   private liveQuizes = []
@@ -17,6 +18,7 @@ export class DashboardStudentComponent implements OnInit {
 
   ngOnInit() {
     this.email_id = window.sessionStorage.getItem("email_id");
+    console.log(this.email_id);
     this.clubService.getClubList().subscribe((data) => {
       this.allClubs = data.data;
     }, (error: any) => {
@@ -42,8 +44,13 @@ export class DashboardStudentComponent implements OnInit {
     };
 
     this.submissionservice.getSubmission(params).subscribe((data) => {
-      this.submissionResults = data.data;
-      console.log(this.submissionResults);
+      if(data.message) {
+        this.submissionPresence = false;
+      }
+      else {
+        this.submissionResults = data.data;
+        this.submissionPresence = true;
+      }
     }, (error: any) => {
       console.log(error);
     });

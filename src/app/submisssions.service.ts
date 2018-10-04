@@ -13,10 +13,11 @@ export class SubmisssionsService {
   private getsubmission_url : string;
   constructor(private http: HttpClient) {
     this.backend_url = environment.backend_url;
-    this.getsubmission_url = this.backend_url + "/submissions/getSubmssion";
+    this.getsubmission_url = this.backend_url + "/submissions/getSubmission";
   }
 
   getSubmission(params): Observable<any> {
+    console.log(this.getsubmission_url);
     return this.http.post(this.getsubmission_url, params);
   }
 }
