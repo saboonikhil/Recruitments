@@ -1,10 +1,24 @@
 <app-header></app-header>
 <div class="sub_container">
-  <div class = "performanceStats">
-    <h2>My Performance</h2>
-    <div style="float:right;right:0px;display: block;width:calc( 40vw + 200px);height:calc(30vw + 100px);">
-    <canvas id="canvas" style="width:100%;height:100%;max-width:700px;max-height:300px;">{{ chart }}</canvas>
+  <div class="performanceStats">
+    <div class="my_Profile">
+      <div class="profile_header" style="float:left;left:0px;">
+        <!-- <h2>My Profile</h2>
+        <div class = "profile">
+          <img src = "./../../vendor/img/blog/c2.jpg">
+          <h4>Pranav Karnani</h4>
+          <h6>{{email_id}}</h6> 
+          <button class = "btn btn-success">Edit</button>
+          <button class = "btn btn-danger">Revoke Session</button> 
+        </div> -->
+      </div>
+      <div style="float:right;right:0px;display: block;width:calc( 40vw + 200px);height:calc(30vw + 100px);">
+        <h2>My Performance</h2>
+        <canvas id="canvas" style="width:100%;height:100%;max-width:700px;max-height:300px;">{{ chart }}</canvas>
+      </div>
     </div>
+
+
   </div>
   <br>
   <br>
@@ -12,18 +26,20 @@
     <span>
       <h2>Currently Recruiting</h2>
     </span>
-    <!-- <span><button class="btn btn-primary">All clubs</button></span> -->
+    <a routerLink="/clubs/listings"><button class="btn btn-primary allclubs">All clubs</button></a>
   </div>
   <br>
-
   <div class="row">
     <div class="card" *ngFor="let club of liveQuizes">
       <img class="card-img-top" src="./../../vendor/img/cta-bg.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ club["name"] }}</h5>
         <p class="card-text">{{ club["description"] }}</p>
+        
       </div>
-      <a href="#" class="btn btn-primary">Start Attempt</a>
+      <a routerLink="/clubs/startAttempt/{{club.id}}">
+        <button (click)="startAttempt(club)" class="btn btn-primary">Attempt</button>
+      </a>
     </div>
     <br>
   </div>

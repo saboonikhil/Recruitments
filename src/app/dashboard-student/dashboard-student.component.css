@@ -8,17 +8,16 @@
     float: right; 
     margin-top:-45px;
 }
+
 .dashboard_header{
-    margin-top:300px;
+    margin-top:350px;
 }
 .row{ 
     margin-left:30px;
-
     width:100%;
     display: inline-block;
     overflow-x: scroll;
     overflow-y: hidden;
-
 }
 p{
     white-space: normal;
@@ -31,13 +30,15 @@ p{
     display: none;
 }
 
-.card {
+.row .card {
     z-index: -1;
     display: inline-block;
     width:380px ;
     margin-right:43px;
 }
-
+.allclubs{
+float:right;
+}
 .card-body {
     height:200px;
 }
@@ -45,12 +46,34 @@ p{
 .btn{
 margin-left:130px;
 margin-bottom:20px;
+/* z-index: 999; */
 }
+
 h2{
     font-size:calc(25px + 0.5vw);
 }
-/* @media scrreen and (max-width:500px){
-#canvas{
-    margin:calc(80vw - 50px);
-} */
-/* } */
+
+.myProfile card img {
+    width: 25%;
+    height: 100px;
+}
+
+.myProfile div {
+    display: inline-block;
+}
+
+.profile {
+    background-color: white;
+    display: inline-block;
+    height: 280px;
+    border-radius: 15px;
+}
+
+.profile img {
+    width:50%;
+    border-radius: 15px;
+}
+
+.profile button {
+    align-items: center;
+}

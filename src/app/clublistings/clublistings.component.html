@@ -1,0 +1,27 @@
+
+
+<div class="table-responsive">
+  <br>
+  <h2>List of Clubs</h2> 
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Club</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let club of allClubs">
+        <th><img src = "./../../vendor/img/elements/f1.jpg">{{club.name}}</th>
+        <th>{{club.description}}</th>
+        <th>
+          <a routerLink="/clubs/getClubInfo/{{club.id}}">
+            <button (click)="edit(club)" class="btn btn-primary">Edit</button>
+          </a>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>

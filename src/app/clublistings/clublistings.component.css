@@ -1,0 +1,12 @@
+.table-responsive {
+    width: 80%;
+    margin: auto;
+}
+
+tr {
+    text-align: center;
+}
+
+img {
+    border-radius: 50px;
+}

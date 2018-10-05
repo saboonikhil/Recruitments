@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { ProfileComponent } from './profile/profile.component';
+import { ClublistingsComponent } from './clublistings/clublistings.component';
 // import {Charts} from 'chart.js'
  
 @NgModule({
@@ -23,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     LoginComponent,
     ProfileComponent,
+    ClublistingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { ProfileComponent } from './profile/profile.component';
       {path : '', component: HomeComponent},
       {path : 'login', component: LoginComponent},
       {path : 'dashboard_student', component: DashboardStudentComponent},
-      
+      {path : 'clubs/listings', component: ClublistingsComponent},
     ])
   ],
   providers: [],

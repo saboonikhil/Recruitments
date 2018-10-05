@@ -131,4 +131,9 @@ export class DashboardStudentComponent implements OnInit {
     domains[String(x)] = marks;
     return domains;
   }
+
+  startAttempt(club) {
+    window.alert(1);
+    
+  }
 }
