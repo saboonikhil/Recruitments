@@ -10,9 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import { ProfileComponent } from './profile/profile.component';
 import { ClublistingsComponent } from './clublistings/clublistings.component';
-// import {Charts} from 'chart.js'
  
 @NgModule({
   declarations: [
@@ -21,7 +19,6 @@ import { ClublistingsComponent } from './clublistings/clublistings.component';
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    ProfileComponent,
     ClublistingsComponent,
   ],
   imports: [
