@@ -134,6 +134,5 @@ export class DashboardStudentComponent implements OnInit {
 
   startAttempt(club) {
     window.alert(1);
-    
   }
 }

@@ -1,5 +1,4 @@
-
-
+<!-- <app-header></app-header> -->
 <div class="table-responsive">
   <br>
   <h2>List of Clubs</h2> 
@@ -7,9 +6,9 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Club</th>
-        <th>Description</th>
-        <th>Actions</th>
+        <th style="background:rgb(71, 72, 85);color:#eee">Club</th>
+        <th style="background:rgb(71, 72, 85);color:#eee">Description</th>
+        <th style="background:rgb(71, 72, 85);color:#eee">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -17,11 +16,41 @@
         <th><img src = "./../../vendor/img/elements/f1.jpg">{{club.name}}</th>
         <th>{{club.description}}</th>
         <th>
-          <a routerLink="/clubs/getClubInfo/{{club.id}}">
-            <button (click)="edit(club)" class="btn btn-primary">Edit</button>
+          <a>
+            <button  class="btn btn-primary" onclick="Confirm.render('Student Name (Reg No.)','delete_post','post_1')" >View</button>
           </a>
         </th>
       </tr>
     </tbody>
   </table>
 </div>
+
+
+
+<div id="dialogoverlay"></div>
+<div id="dialogbox">
+    <div>
+        <div id="dialogboxhead">ARE YOU SURE?</div>
+        <div id="dialogboxbody">Student Name (Reg No.)</div>
+        </div>
+    </div>
+
+
+
+<script>
+function CustomConfirm(){
+    this.render = function(){
+        var winW = window.innerWidth;
+        var winH = window.innerHeight;
+        var dialogoverlay = document.getElementById('dialogoverlay');
+        var dialogbox = document.getElementById('dialogbox');
+        dialogoverlay.style.visibility = "visible";
+        document.getElementById('dialogoverlay').style.zIndex= "10"; 
+        dialogoverlay.style.opacity = "0.7";
+        dialogbox.style.opacity = "1";
+    }
+
+}
+var Confirm = new CustomConfirm();
+
+</script>

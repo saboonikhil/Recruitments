@@ -11,6 +11,7 @@
 
 .dashboard_header{
     margin-top:350px;
+    z-index:999;
 }
 .row{ 
     margin-left:30px;
@@ -31,13 +32,13 @@ p{
 }
 
 .row .card {
-    z-index: -1;
     display: inline-block;
     width:380px ;
     margin-right:43px;
 }
 .allclubs{
 float:right;
+right:0;
 }
 .card-body {
     height:200px;
@@ -46,34 +47,101 @@ float:right;
 .btn{
 margin-left:130px;
 margin-bottom:20px;
-/* z-index: 999; */
 }
 
 h2{
     font-size:calc(25px + 0.5vw);
 }
-
-.myProfile card img {
-    width: 25%;
-    height: 100px;
+#canvas{
+    width:100%;
+    height:100%;
+    max-width:700px;
+    max-height:300px;
 }
 
 .myProfile div {
     display: inline-block;
 }
+.yoyo{
+    float:right;
+    right:0px;display:block;
+    width:calc( 40vw + 200px);
+    height:calc(30vw + 100px);
+}
 
 .profile {
-    background-color: white;
+    background: linear-gradient(to top, white 55%,rgba(0, 0, 0, 0.616) 45%);
     display: inline-block;
-    height: 280px;
+    height: 250px;
     border-radius: 15px;
+    box-shadow:0px 0px 100px 10px rgba(0,0,0,0.1);
 }
 
 .profile img {
-    width:50%;
-    border-radius: 15px;
+    height:110px;
+    width:110px;
+    border-radius: 50%;
+    margin-top:40px;
+}
+.profile button{
+    margin-top:-3px;
+    cursor: default;
+
 }
 
-.profile button {
-    align-items: center;
+.profile input{
+    position: absolute;
+    width:97px;
+    height:36px;
+    margin-left:-18px;
+    margin-top:-6px;
+    opacity:0;
+}
+@media screen and (min-width: 981px){
+    .yoyo{
+        float:right;
+        right:0px;
+        display: block;
+        width:calc( 40vw + 200px);
+        height:calc(30vw + 100px);
+        position: absolute;
+        z-index: -1;
+    }
+    .profile{
+        margin-top:27px;
+        width:28vw;
+        min-width:290px;
+    }
+    .profile img {
+        margin-left:calc(14vw - 48px);
+    }
+    .profile button{
+        margin-left:calc(14vw - 40px);
+    }
+    .yoyo h2{
+        margin-left:55px;
+    }
+}
+@media screen and (max-width: 980px){
+    .dashboard_header{
+        margin-top:calc(460px + 20vw);
+    }
+    .yoyo{
+        margin-top:40px;
+        display: block;
+        margin-right:calc(31vw - 110px);
+    }
+    .yoyo h2{
+        margin-left:calc(100px - 18vw);
+    }
+    .profile{
+        margin-left:calc(28vw - 90px  );
+        width:calc(25vw + 200px);
+    }
+    .profile img {
+        margin-left:calc(45px + 12.5vw);
+    }
+    .profile button{
+        margin-left:calc(60px + 12.5vw);
+    }
 }
