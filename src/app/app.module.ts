@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { DashboardStudentComponent } from './dashboard-student/dashboard-student.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -19,7 +18,6 @@ import { ClublistingsComponent } from './clublistings/clublistings.component';
   declarations: [
     AppComponent,
     DashboardStudentComponent,
-    SidebarComponent,
     HeaderComponent,
     HomeComponent,
     LoginComponent,
