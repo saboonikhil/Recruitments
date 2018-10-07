@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetClubsService } from '../get-clubs.service';
 import { SubmisssionsService } from '../submisssions.service';
 import { Chart } from 'chart.js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-student',
@@ -9,11 +10,12 @@ import { Chart } from 'chart.js';
   styleUrls: ['./dashboard-student.component.css']
 })
 export class DashboardStudentComponent implements OnInit {
+  title = "Dashboard";
   chart = [];
   email_id = "";
   private colors = ["crimson","indigo","darkslategray","indigo","darkcyan","seagreen","cyan"];
   private submissionPresence = false;
-  constructor(private clubService: GetClubsService, private submissionservice: SubmisssionsService) { }
+  constructor(private clubService: GetClubsService, private submissionservice: SubmisssionsService, private _router: Router) { }
   private submissionResults = []
   private upcomingQuizes = []
   private liveQuizes = []
@@ -133,6 +135,9 @@ export class DashboardStudentComponent implements OnInit {
   }
 
   startAttempt(club) {
-    window.alert(1);
+    let id = club.id;
+    let route = "clubs/"+id;
+    console.log(route);
+    this._router.navigate([route]);
   }
 }

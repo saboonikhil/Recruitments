@@ -17,12 +17,10 @@ export class LoginService {
   }
 
   postLogin(params): Observable<any> {
-
     return this.http.post(this.login_url, params);
   }
 
   verifyLogin(params) : Observable<any> {
-
     return this.http.post(this.verify_url, params);
   }
 }

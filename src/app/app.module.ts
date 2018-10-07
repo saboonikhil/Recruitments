@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { ClublistingsComponent } from './clublistings/clublistings.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
  
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ClublistingsComponent } from './clublistings/clublistings.component';
     HomeComponent,
     LoginComponent,
     ClublistingsComponent,
+    DisclaimerComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { ClublistingsComponent } from './clublistings/clublistings.component';
       {path : 'login', component: LoginComponent},
       {path : 'dashboard_student', component: DashboardStudentComponent},
       {path : 'clubs/listings', component: ClublistingsComponent},
+      {path : 'clubs/:id', component: DisclaimerComponent},
     ])
   ],
   providers: [],

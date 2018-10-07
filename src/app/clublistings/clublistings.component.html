@@ -1,4 +1,5 @@
 <!-- <app-header></app-header> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="table-responsive">
   <br>
   <h2>List of Clubs</h2> 
@@ -17,7 +18,7 @@
         <th>{{club.description}}</th>
         <th>
           <a>
-            <button  class="btn btn-primary" onclick="Confirm.render('Student Name (Reg No.)','delete_post','post_1')" >View</button>
+            <button  class="btn btn-primary" (click)="confirm(club)">View</button>
           </a>
         </th>
       </tr>
@@ -26,31 +27,26 @@
 </div>
 
 
-
 <div id="dialogoverlay"></div>
 <div id="dialogbox">
-    <div>
-        <div id="dialogboxhead">ARE YOU SURE?</div>
-        <div id="dialogboxbody">Student Name (Reg No.)</div>
+  <div>
+      <div id="dialogboxhead">{{ club["name"] }}</div>
+      <div id="dialogboxbody">
+        <div style="display:inline;">
+        <div class="containersocialhandles">
+          <img src = "./../../vendor/img/blog/c2.jpg"><div>
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-google"></a>
+          <a href="#" class="fa fa-instagram"></a></div>
         </div>
-    </div>
+        <div class="containerdescription">
+            <p> {{ club["description"] }} </p>
+        </div>
+      </div>
+      </div>
 
-
-
-<script>
-function CustomConfirm(){
-    this.render = function(){
-        var winW = window.innerWidth;
-        var winH = window.innerHeight;
-        var dialogoverlay = document.getElementById('dialogoverlay');
-        var dialogbox = document.getElementById('dialogbox');
-        dialogoverlay.style.visibility = "visible";
-        document.getElementById('dialogoverlay').style.zIndex= "10"; 
-        dialogoverlay.style.opacity = "0.7";
-        dialogbox.style.opacity = "1";
-    }
-
-}
-var Confirm = new CustomConfirm();
-
-</script>
+      <div id="dialogboxfoot">
+          <button id="back" (click)="back()">BACK</button> 
+      </div>
+  </div>
+</div>
