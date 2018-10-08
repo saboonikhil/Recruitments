@@ -13,10 +13,10 @@ export class DisclaimerComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit() {
+  set(domain) {
     var id = this.getCookie("recruitments_portal_club");
     var cname = "recruitments_portal_domain";
-    var cvalue = "Tech"
+    var cvalue = domain;
     var d = new Date();
     d.setTime(d.getTime() + (11 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
@@ -24,6 +24,19 @@ export class DisclaimerComponent implements OnInit {
     var path = "/clubs/"+id+"/"+cvalue+"/attempt";
     this._router.navigate([path]);
   }
+
+  management() {
+    this.set("Management");
+  }
+
+  design() {
+    this.set("Design");
+  }
+
+  tech() {
+    this.set("Tech");
+  }
+
 
   getCookie(name: string) {
     let ca: Array<string> = document.cookie.split(';');

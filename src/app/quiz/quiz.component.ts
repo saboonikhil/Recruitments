@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetQuestionsService } from './../get-questions.service';
 import { SubmisssionsService } from './../submisssions.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -14,7 +15,7 @@ export class QuizComponent implements OnInit {
   optionList = [];
   bookindex = 0;
   answerSet = [{}];
-  constructor(private questionService: GetQuestionsService, private submissions : SubmisssionsService) { }
+  constructor(private questionService: GetQuestionsService, private submissions : SubmisssionsService, private _router:Router) { }
 
   ngOnInit() {
     var params = {};
@@ -167,13 +168,25 @@ export class QuizComponent implements OnInit {
     params["id"] = this.getCookie("recruitments_portal_club");
     params["domain"] = this.getCookie("recruitments_portal_domain");
     params["answers"] = this.answerSet;
-    
+    console.log(params);
     this.submissions.postAnswers(params).subscribe((data:any) => {
       console.log(data);
+      if(data.marks) {
+        this.invalidateCookies();
+        this._router.navigate(['dashboard_student']);
+      }
     },(error : any) => {
       console.log(error);
     })
 
+  }
+
+  invalidateCookies() {
+    var d = new Date(); 
+    d.setTime(d.getTime() - (1000*60*60*24)); 
+    var expires = "expires=" + d.toUTCString();
+    window.document.cookie = "recruitments_portal_club="+"; "+expires;
+    window.document.cookie = "recruitments_portal_domain="+"; "+expires;
   }
 
   opt1(question){

@@ -1,0 +1,10 @@
+.disclaimer_container {
+    width: 80%;
+    margin: auto;
+}
+
+button {
+    width: 20vw;
+    height: 7vw;
+    margin-right: 10px;
+}
