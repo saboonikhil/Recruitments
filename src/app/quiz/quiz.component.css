@@ -1,0 +1,52 @@
+.card{
+    width:85%;
+    margin:auto;
+    cursor: default;
+}
+
+.quiz_container {
+    width: 90%;
+    margin: auto;
+}
+queno{
+    width:80%;
+}
+.quecon{
+    padding:25px;
+
+}
+.optcon{
+    padding:40px;
+}
+#q1,#o1{
+    display:block;
+}
+#q2,#o2,#q3,#o3,#q4,#o4,#q5,#o5,#q6,#o6,#q7,#o7,#q8,#o8,#q9,#o9,#q10,#o10{
+    display:none;
+}
+
+h3 {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.bookmark{ 
+    height: 50px; 
+    width: 40px; 
+    float:right;
+    cursor: pointer;
+    border-left: 20px solid orange; 
+    border-right: 20px solid orange;; 
+    border-bottom: 12px solid transparent;
+    margin-top: -51px; 
+    margin-right: 30px;
+    display:none;
+}
+
+#b1{
+    display:block;
+}
+
+button{
+    margin-left: calc(50vw - 80px);
+}

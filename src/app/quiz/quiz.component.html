@@ -1,0 +1,23 @@
+<br>
+<br>
+<div class="quiz_container">
+  <h2> Quiz</h2><br>
+  <div class="card" id="{{question}}"  *ngFor="let question of questions">
+    <span>
+    <div id="Question {{question}}" class="queno" (click)="adapt(question)"><h3>Question {{question}}</h3></div>
+    <div class="bookmark" id="b{{question}}" (click)= "bookmark(question)" ></div></span>
+    <div class="quecon" id="q{{question}}">{{questionList[question-1].question}}</div>
+    <div class="optcon" id="o{{question}}">
+      <div id = "{{question}}_1" (click) = "next(question); opt1(question)"><input type = "radio" name="{{question}}"><label for="{{question}}_1">{{optionList[question-1].option1}}</label></div><br>
+      <div id = "{{question}}_2" (click) = "next(question); opt2(question)"><input type = "radio" name="{{question}}"><label for="{{question}}_2">{{optionList[question-1].option2}}</label></div><br>
+      <div id = "{{question}}_3" (click) = "next(question); opt3(question)"><input type = "radio" name="{{question}}"><label for="{{question}}_3">{{optionList[question-1].option3}}</label></div><br>
+      <div id = "{{question}}_4" (click) = "next(question); opt4(question)"><input type = "radio" name="{{question}}"><label for="{{question}}_4">{{optionList[question-1].option4}}</label></div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class = "btn_container">
+    <button class = "btn btn-primary" (click) = "submit()">Submit</button>
+  </div>
+  
+</div>

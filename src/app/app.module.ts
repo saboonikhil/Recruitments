@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { ClublistingsComponent } from './clublistings/clublistings.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { QuizComponent } from './quiz/quiz.component';
  
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DisclaimerComponent } from './disclaimer/disclaimer.component';
     LoginComponent,
     ClublistingsComponent,
     DisclaimerComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { DisclaimerComponent } from './disclaimer/disclaimer.component';
       {path : 'dashboard_student', component: DashboardStudentComponent},
       {path : 'clubs/listings', component: ClublistingsComponent},
       {path : 'clubs/:id', component: DisclaimerComponent},
+      {path : 'clubs/:id/:domain/attempt', component: QuizComponent},
     ])
   ],
   providers: [],

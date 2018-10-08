@@ -16,8 +16,6 @@
         <canvas id="canvas">{{ chart }}</canvas>
       </div>
     </div>
-
-
   </div>
   <br>
   <br>
@@ -35,7 +33,7 @@
         <h5 class="card-title">{{ club["name"] }}</h5>
         <p class="card-text">{{ club["description"] }}</p>
       </div>
-      <a routerLink="/clubs/startAttempt/{{club.id}}"><button (click)="startAttempt(club)" class="btn btn-primary">Attempt</button></a>
+      <button (click)="startAttempt(club)" class="btn btn-primary">Attempt</button>
     </div>
     <br>
   </div>

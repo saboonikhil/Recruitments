@@ -13,7 +13,7 @@ export class DashboardStudentComponent implements OnInit {
   title = "Dashboard";
   chart = [];
   email_id = "";
-  private colors = ["crimson","indigo","darkslategray","indigo","darkcyan","seagreen","cyan"];
+  private colors = ["crimson", "indigo", "darkslategray", "indigo", "darkcyan", "seagreen", "cyan"];
   private submissionPresence = false;
   constructor(private clubService: GetClubsService, private submissionservice: SubmisssionsService, private _router: Router) { }
   private submissionResults = []
@@ -64,9 +64,9 @@ export class DashboardStudentComponent implements OnInit {
           x["fill"] = false;
           marks = [];
           x["borderColor"] = this.colors[i];
-          marks.push(distinctDomain[z[i]]["Tech"]? distinctDomain[z[i]]["Tech"]:0);
-          marks.push(distinctDomain[z[i]]["Management"]? distinctDomain[z[i]]["Management"]:0);
-          marks.push(distinctDomain[z[i]]["Design"]? distinctDomain[z[i]]["Design"]:0);
+          marks.push(distinctDomain[z[i]]["Tech"] ? distinctDomain[z[i]]["Tech"] : 0);
+          marks.push(distinctDomain[z[i]]["Management"] ? distinctDomain[z[i]]["Management"] : 0);
+          marks.push(distinctDomain[z[i]]["Design"] ? distinctDomain[z[i]]["Design"] : 0);
           x["data"] = marks;
           dataChart.push(x);
         }
@@ -78,7 +78,7 @@ export class DashboardStudentComponent implements OnInit {
             datasets: dataChart
           },
           options: {
-            
+
             layout: {
               padding: {
                 left: 50,
@@ -96,9 +96,9 @@ export class DashboardStudentComponent implements OnInit {
                 }],
                 yAxes: [{
                   ticks: {
-                    min:0,
-                    max:10,
-                    stepSize:1
+                    min: 0,
+                    max: 10,
+                    stepSize: 1
                   },
                   display: true
                 }],
@@ -136,8 +136,16 @@ export class DashboardStudentComponent implements OnInit {
 
   startAttempt(club) {
     let id = club.id;
-    let route = "clubs/"+id;
+    this.setCookie("recruitments_portal_club", id);
+    let route = "clubs/" + id;
     console.log(route);
     this._router.navigate([route]);
+  }
+
+  setCookie(cname, cvalue) {
+    var d = new Date();
+    d.setTime(d.getTime() + (12 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 }
