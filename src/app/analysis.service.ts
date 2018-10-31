@@ -6,6 +6,7 @@ import { environment } from './../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AnalysisService {
   private distinct_clubs_url;
   private backend_url;

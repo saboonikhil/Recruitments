@@ -22,3 +22,7 @@
 .clubs {
     float: right;
 }
+
+.charts {
+    display: inline-block;
+}

@@ -1,23 +1,31 @@
-<div class = "sub_container">
-  <br>
-  <h2>Analysis</h2>
-  <br>
-  <div class = "a_container">
-    <div class = "count">
-        <h6>Number of submissions</h6>
-        <h2>{{submission_count}}</h2>
+<div class="sub_container">
+    <br>
+    <h2>Analysis</h2>
+    <br>
+    <div class="a_container">
+        <div class="count">
+            <h6>Number of submissions</h6>
+            <h2>{{submission_count}}</h2>
+        </div>
+        <div class="clubs">
+            <h6>Number of clubs participated</h6>
+            <h2>{{clubs_count}}</h2>
+        </div>
     </div>
-    <div class = "clubs">
-        <h6>Number of clubs participated</h6>
-        <h2>{{clubs_count}}</h2>
+    <br>
+    <br>
+    <div class="overview_container">
+        <h2>Overview</h2>
+        <h6>Submission Count</h6>
+        <div class="charts">
+            <canvas id="canvas1" width="1500" height="500">
+                {{ chart1 }}
+            </canvas>
+            <canvas id="canvas2" width="1500" height="500">
+                {{ myDoughnutChart }}
+            </canvas>
+        </div>
+
     </div>
-  </div>
-  <br>
-  <br>
-  <div class = "overview_container">
-      <h2>Overview</h2>
-      <h6>Submission Count</h6>
-      <canvas id="canvas" width="1100" height="400">{{ chart }}</canvas>
-  </div>
-  <br>
+    <br>
 </div>
