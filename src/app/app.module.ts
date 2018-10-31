@@ -13,6 +13,8 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { ClublistingsComponent } from './clublistings/clublistings.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { AnalysisComponent } from './analysis/analysis.component';
+import { CountoModule }  from 'angular2-counto';
  
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { QuizComponent } from './quiz/quiz.component';
     ClublistingsComponent,
     DisclaimerComponent,
     QuizComponent,
+    AnalysisComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { QuizComponent } from './quiz/quiz.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CountoModule,
     RouterModule.forRoot([
       {path : '', component: HomeComponent},
       {path : 'login', component: LoginComponent},
@@ -40,6 +44,7 @@ import { QuizComponent } from './quiz/quiz.component';
       {path : 'clubs/listings', component: ClublistingsComponent},
       {path : 'clubs/:id', component: DisclaimerComponent},
       {path : 'clubs/:id/:domain/attempt', component: QuizComponent},
+      {path : 'analysis', component: AnalysisComponent},
     ])
   ],
   providers: [],

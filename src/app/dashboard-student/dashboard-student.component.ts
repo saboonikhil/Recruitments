@@ -23,7 +23,6 @@ export class DashboardStudentComponent implements OnInit {
 
   ngOnInit() {
     this.email_id = window.sessionStorage.getItem("email_id");
-
     this.clubService.getClubList().subscribe((data) => {
       this.allClubs = data.data;
     }, (error: any) => {
