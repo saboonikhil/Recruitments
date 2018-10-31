@@ -53,7 +53,6 @@ export class DashboardStudentComponent implements OnInit {
         this.submissionResults = data.data;
         this.submissionPresence = true;
         var distinctDomain = this.getDomains(this.submissionResults);
-        console.log("domain", distinctDomain);
         var z = (Object.keys(distinctDomain));
         var dataChart = [];
         var marks = [];
@@ -69,7 +68,7 @@ export class DashboardStudentComponent implements OnInit {
           x["data"] = marks;
           dataChart.push(x);
         }
-        console.log(dataChart);
+
         this.chart = new Chart('canvas', {
           type: 'line',
           data: {
@@ -137,7 +136,6 @@ export class DashboardStudentComponent implements OnInit {
     let id = club.id;
     this.setCookie("recruitments_portal_club", id);
     let route = "clubs/" + id;
-    console.log(route);
     this._router.navigate([route]);
   }
 

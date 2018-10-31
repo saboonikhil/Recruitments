@@ -7,13 +7,14 @@ import { Chart } from 'chart.js';
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.css']
 })
+
 export class AnalysisComponent implements OnInit {
   submission_count = 0;
   clubs_count = 0;
   clubs = [];
   domains = [];
   chart = [];
-  submission = {};
+  submission = [];
   clubNames = [];
   domainMarks = [];
   constructor(private analysis:AnalysisService) {
@@ -21,43 +22,31 @@ export class AnalysisComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.analysis.distinctClubs().subscribe((dataClub) => {
-      this.clubs_count = dataClub.data.length;
-      this.clubs = dataClub.data;
-      for(var i=0;i<this.clubs.length;i++) {
-        console.log(i);
-        var params = {"club":this.clubs[i].club_id};
-        console.log(params);
-        this.clubNames.push(this.clubs[i].name);
-        this.analysis.submissions(params).subscribe((data) => {
-          this.submission[params.club] = (data.data["count (regno)"]);
-          console.log(this.submission);
-          this.submission_count += data.data["count (regno)"];
-          // if(this.submission.length == this.clubs.length) {
-          //   this.check();
-          // }
-        }, (error: any) => {
-          console.log(error);
-        });
-      }
-    }, (error: any) => {
-      console.log(error);
-    }); 
-
-    for(var i=0;i<this.domains.length;i++) {
-      var params = {"domain":this.domains[i]};
-      this.analysis.domainOverview(params).subscribe((data) => {
-        this.domainMarks.push(data.data["count (regno)"]);
-      }, (error: any) => {
+    var z = 0;
+    this.getClubs().then((data:any) => {
+      this.clubs = data;
+      this.clubs_count = data.length;
+      this.getSubmission().then((submissionData) => {
+        for(var i=0;i<this.submission.length;i++) {
+          this.submission_count += this.submission[i];
+          this.clubNames.push(this.clubs[i].name);
+        }
+        this.check();
+      }).catch((error) => {
         console.log(error);
       });
-    }
-    
+      
+      this.getDomains().then((data:any) => {
+        console.log(this.domainMarks);
+      },(error:any) => {
+        console.log(error);
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   check() {
-    console.log(this.clubNames);
-    console.log(this.submission);
     var options = {
       "cutoutPercentage":0,
       "rotation":-0.5*Math.PI,
@@ -77,5 +66,48 @@ export class AnalysisComponent implements OnInit {
       data: data,
       options: options
   });
+  }
+
+  getClubs() {
+    return new Promise((resolve,reject) => {
+      this.analysis.distinctClubs().subscribe((dataClub) => {
+        return resolve(dataClub.data);
+      },(error: any) => {
+        return reject(error);
+      });
+    });
+  }
+
+  getSubmission() {
+    return new Promise((resolve,reject) => {
+      for(var i=0;i<this.clubs_count;i++) {
+        var params = {"club":this.clubs[i].club_id};
+        this.analysis.submissions(params).subscribe((data) => {
+          this.submission.push(data.data["count (regno)"]);
+          if(this.submission.length == this.clubs_count) {
+            return resolve(true);
+          }
+        }, (error) => {
+          return reject(error);
+        })
+      }
+    });
+  }
+
+  getDomains() {
+    return new Promise((resolve,reject) => {
+      for(var i=0;i<this.domains.length;i++) {
+        var params = {};
+        params["domain"] = this.domains[i];
+        this.analysis.domainOverview(params).subscribe((data) => {
+          this.domainMarks.push(data.data["count (regno)"]);
+          if(this.domainMarks.length == this.domains.length) {
+            return resolve(true);
+          }
+        },(error : any) => {
+          return reject(error);
+        });
+      }
+    });
   }
 }

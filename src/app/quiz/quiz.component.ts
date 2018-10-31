@@ -21,9 +21,7 @@ export class QuizComponent implements OnInit {
     var params = {};
     params["id"] = this.getCookie("recruitments_portal_club");
     params["domain"] = this.getCookie("recruitments_portal_domain");
-    console.log(params);
     this.questionService.getQuestion(params).subscribe((data) => {
-      console.log(data);
       if (data.data) {
         this.questionList = data.data;
         this.optionList = data.options;
@@ -56,8 +54,6 @@ export class QuizComponent implements OnInit {
   }
 
   adapt(question) {
-
-    console.log("adapt");
     question = Number(question);
 
     for (var i = 1; i <= this.questions.length; i++) {
@@ -72,7 +68,6 @@ export class QuizComponent implements OnInit {
         var element = document.getElementById(question);
         var style = window.getComputedStyle(element);
         var bcolors = style.getPropertyValue('background-color');
-        console.log(bcolors);
         if (bcolors === "rgba(120, 255, 85, 0.6)" || bcolors === "rgba(255, 165, 0, 0.6)") {
           element.style.backgroundColor = "white";
         }
@@ -106,7 +101,6 @@ export class QuizComponent implements OnInit {
   }
 
   next(question) {
-    console.log()
     question = Number(question);
     if (question+1 <= this.questions.length) {
       var bindex = "b" + (question);
@@ -132,7 +126,6 @@ export class QuizComponent implements OnInit {
   }
 
   bookmark(question) {
-    console.log("bookmark");
     question = Number(question);
     var bindex = "b" + (question);
     var element = document.getElementById(bindex);
@@ -162,15 +155,12 @@ export class QuizComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.answerSet);
     var params = {};
     params["email"] = window.sessionStorage.getItem("email_id");
     params["id"] = this.getCookie("recruitments_portal_club");
     params["domain"] = this.getCookie("recruitments_portal_domain");
     params["answers"] = this.answerSet;
-    console.log(params);
     this.submissions.postAnswers(params).subscribe((data:any) => {
-      console.log(data);
       if(data.marks) {
         this.invalidateCookies();
         this._router.navigate(['dashboard_student']);

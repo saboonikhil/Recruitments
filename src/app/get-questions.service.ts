@@ -17,7 +17,6 @@ export class GetQuestionsService {
   }
 
   getQuestion(params):Observable<any> {
-    console.log(this.questions_url);
     return this.http.post(this.questions_url,params);
   }
 }
