@@ -10,10 +10,12 @@ export class AnalysisService {
   private distinct_clubs_url;
   private backend_url;
   private submission_url;
+  private domain_url;
   constructor(private http: HttpClient) {
     this.backend_url = environment.backend_url;
     this.distinct_clubs_url = this.backend_url + "/analysis/distinct";
     this.submission_url = this.backend_url + "/analysis/submissionoverview";
+    this.domain_url = this.backend_url + "/analysis/domainoverview";
   }
 
   distinctClubs(): Observable<any> {
@@ -22,5 +24,9 @@ export class AnalysisService {
 
   submissions(params) : Observable<any> {
     return this.http.post(this.submission_url,params);
+  }
+
+  domainOverview(params): Observable<any> {
+    return this.http.post(this.domain_url,params);
   }
 }
