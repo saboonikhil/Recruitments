@@ -2,3 +2,40 @@
     width: 88%;
     margin: auto;
 }
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    margin: auto;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader_container {
+    width: 100%;
+    margin: auto;
+}
+
+#canvas1 {
+    height: 300px;
+}
+
+#can1{
+    float: left;
+    margin-left:20px;
+}
+#canvas2 {
+    height: 300px;
+}
+
+#can2{
+    float: right;
+    margin-left:20px;
+}

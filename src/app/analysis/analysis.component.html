@@ -2,7 +2,7 @@
     <br>
     <div class="main">
         <h2>Analysis</h2>
-        <a routerLink="/analysis/detailed"><button class="btn-primary">Get Submissions</button></a>
+        <a routerLink="/detailed_analysis"><button class="btn-primary">Get Submissions</button></a>
     </div>
 
     <br>
@@ -36,4 +36,14 @@
 
     </div>
     <br>
+    <div class="row">
+        <div class="card" *ngFor="let club of clubs">
+            <img class="card-img-top" src="./../../vendor/img/cta-bg.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ club["name"] }}</h5>
+            </div>
+            <button (click)="getData(club)" class="btn btn-primary">Details</button>
+        </div>
+        <br>
+    </div>
 </div>

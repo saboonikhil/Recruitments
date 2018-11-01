@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalysisService } from '../analysis.service';
 import { Chart } from 'chart.js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-analysis',
@@ -18,12 +19,13 @@ export class AnalysisComponent implements OnInit {
   submission = [];
   clubNames = [];
   domainMarks = [];
-  constructor(private analysis: AnalysisService) {
+  constructor(private analysis: AnalysisService,private _router: Router) {
     this.domains = ["Tech", "Management", "Design"];
   }
 
   ngOnInit() {
     var z = 0;
+    window.sessionStorage.setItem('club_analysis',"0");
     this.getClubs().then((data: any) => {
       this.clubs = data;
       this.clubs_count = data.length;
@@ -133,5 +135,11 @@ export class AnalysisComponent implements OnInit {
         });
       }
     });
+  }
+
+  getData(club) {
+    console.log(club);
+    window.sessionStorage.setItem('club_analysis',String(club.club_id));
+    this._router.navigate(["detailed_analysis"]);
   }
 }

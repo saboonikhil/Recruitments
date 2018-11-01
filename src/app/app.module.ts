@@ -47,7 +47,7 @@ import { DetailedAnalysisComponent } from './detailed-analysis/detailed-analysis
       {path : 'clubs/:id', component: DisclaimerComponent},
       {path : 'clubs/:id/:domain/attempt', component: QuizComponent},
       {path : 'analysis', component: AnalysisComponent},
-      {path : 'analysis/detailed', component: DetailedAnalysisComponent},
+      {path : 'detailed_analysis', component: DetailedAnalysisComponent},
     ])
   ],
   providers: [],
