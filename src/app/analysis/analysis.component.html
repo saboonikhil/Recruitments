@@ -1,6 +1,10 @@
 <div class="sub_container">
     <br>
-    <h2>Analysis</h2>
+    <div class="main">
+        <h2>Analysis</h2>
+        <a routerLink="/analysis/detailed"><button class="btn-primary">Get Submissions</button></a>
+    </div>
+
     <br>
     <div class="a_container">
         <div class="count">
@@ -18,12 +22,16 @@
         <h2>Overview</h2>
         <h6>Submission Count</h6>
         <div class="charts">
-            <canvas id="canvas1" width="1500" height="500">
-                {{ chart1 }}
-            </canvas>
-            <canvas id="canvas2" width="1500" height="500">
-                {{ myDoughnutChart }}
-            </canvas>
+            <div id="can1">
+                <canvas id="canvas1">
+                    {{ chart1 }}
+                </canvas>
+            </div>
+            <div id="can2">
+                <canvas id="canvas2">
+                    {{ chart2 }}
+                </canvas>
+            </div>
         </div>
 
     </div>

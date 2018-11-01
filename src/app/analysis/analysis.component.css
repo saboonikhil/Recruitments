@@ -6,7 +6,7 @@
 .a_container {
     width: 100%;
     margin: auto;
-    padding: 100px;
+    padding: 80px;
     background-color: white;
     border-radius: 10px;
     display: inline-block;
@@ -19,10 +19,44 @@
     height:100%;
 }
 
+.main {
+    width: 100%;
+    display: inline-block;
+}
+
+.main h2 {
+    float: left;
+    margin-left: 20px;
+}
+
+.main button {
+    float: right;
+    margin-right: 20px;
+    height: 40px;
+}
+
 .clubs {
     float: right;
 }
 
 .charts {
     display: inline-block;
+    width: 100%;
+    height: 400px;
+}
+
+#canvas1 {
+    height: 300px;
+}
+
+#canvas2 {
+    height: 300px;
+}
+#can1{
+    float: left;
+    margin-left:20px;
+}
+#can2{
+    float: right;
+    margin-right:20px;
 }

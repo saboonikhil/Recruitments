@@ -85,7 +85,7 @@ export class AnalysisComponent implements OnInit {
       options: options
     });
     
-    var myDoughnutChart = new Chart("canvas2", {
+    this.chart2 = new Chart("canvas2", {
       type: 'doughnut',
       data: donutData,
       options: myDoughnutChartOptions

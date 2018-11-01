@@ -15,6 +15,7 @@ import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { CountoModule }  from 'angular2-counto';
+import { DetailedAnalysisComponent } from './detailed-analysis/detailed-analysis.component';
  
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CountoModule }  from 'angular2-counto';
     DisclaimerComponent,
     QuizComponent,
     AnalysisComponent,
+    DetailedAnalysisComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { CountoModule }  from 'angular2-counto';
       {path : 'clubs/:id', component: DisclaimerComponent},
       {path : 'clubs/:id/:domain/attempt', component: QuizComponent},
       {path : 'analysis', component: AnalysisComponent},
+      {path : 'analysis/detailed', component: DetailedAnalysisComponent},
     ])
   ],
   providers: [],
