@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalysisService } from '../analysis.service';
-import { platform } from 'os';
+// import { platform } from 'os';
 import { Chart } from 'chart.js';
 
 @Component({
